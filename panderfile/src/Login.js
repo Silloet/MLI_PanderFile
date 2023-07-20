@@ -25,6 +25,8 @@ function Copyright(props) {
   );
 }
 
+fetch('https://mli-data-api-dev.azurewebsites.net/api/Login')
+
 const defaultTheme = createTheme();
 
 export default function Login() {

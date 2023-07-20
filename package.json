@@ -13,6 +13,7 @@
     "azure-storage": "^2.10.7",
     "azure-storage-blob": "^0.0.1-security",
     "mui": "^0.0.1",
+    "react-drop-zone": "^4.3.3",
     "react-router-dom": "^6.14.2",
     "xlsx": "^0.18.5"
   }

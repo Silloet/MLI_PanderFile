@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Login from './Login'
+import  './Login'
+import './forgotPassword.css'
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -31,6 +32,9 @@ const ForgotPassword = () => {
   };
 
   return (
+    
+    <div class= 'backbtn'>Back To <a href="/">Login</a> 
+    <container class= 'container'>
     <div>
       {isSubmitted ? (
         <div>
@@ -42,9 +46,9 @@ const ForgotPassword = () => {
         <form onSubmit={handleSubmit}>
           <h2>Forgot Password</h2>
           <p>Enter your email address below and we'll send you instructions to reset your password.</p>
-          <div>
-            <label htmlFor="email">Email:</label>
-            <input
+          <div class ='text'>
+            <label htmlFor="email">Email</label>
+            <input class ='form'
               type="email"
               id="email"
               value={email}
@@ -52,13 +56,14 @@ const ForgotPassword = () => {
               required
             />
           </div>
-          <button type="submit">Reset Password</button>
-          <p>Click <a href="/">here</a> to go back to the login page.</p>
+          <button class='btn' type="submit">Reset Password</button>
         </form>
         
       )}
-      
+      </div>
+      </container>
     </div>
+    
   );
 };
 
