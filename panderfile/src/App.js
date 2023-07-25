@@ -1,11 +1,11 @@
 import React from 'react'
 import './App.css';
-import Login from './Login'
+import Login from './Pages/Login'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import './index.css'
-import Signup from './Signup'
-import Dashboard from './Dashboard'
-import ForgotPassword from './ForgotPassword'
+import Signup from './Pages/Signup'
+import Dashboard from './Pages/Dashboard'
+import ForgotPassword from './Pages/ForgotPassword'
 
 
 
