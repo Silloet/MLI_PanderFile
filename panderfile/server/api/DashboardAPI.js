@@ -4,7 +4,7 @@ const fs = require('fs');
 const XLSX = require ('xlsx');
 const _ = required ('lodash');
 const app = express();
-const port = 8000;
+
 
 const upload = multer({ dest: 'uploads/'});
 
@@ -49,6 +49,3 @@ const cleanFilePath = '';
 const deduplicatedData = deduplicateFiles(panderFilePath, dataFilePath);
 createCleanFile(deduplicatedData, cleanFilePath);
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});

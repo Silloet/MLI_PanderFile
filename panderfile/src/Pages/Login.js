@@ -12,6 +12,10 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from '././components/Silloet-Live-Circle.png'
 import logo_2 from './components/Logo_2.png'
+
+
+
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -28,6 +32,8 @@ function Copyright(props) {
 fetch('https://mli-data-api-dev.azurewebsites.net/api/Login')
 
 const defaultTheme = createTheme();
+
+
 
 export default function Login() {
   const handleSubmit = (event) => {
@@ -71,6 +77,7 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
+             
             />
             <TextField
               margin="normal"
@@ -81,6 +88,7 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+             
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

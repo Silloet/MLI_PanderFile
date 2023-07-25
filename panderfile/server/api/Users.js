@@ -27,22 +27,7 @@ const userSchema = new Schema({
         minlength: 5
       },
 
-    comments:[{
-        type: Schema.Types.ObjectId,
-        ref: 'Comment'
-    }],
-    friends: [{
-        type: Schema.Types.ObjectId,
-        ref: "User"
-    }], 
-     savedBooks: [{
-        bookId: String,
-        authors: [String],
-        description: String,
-        title: String,
-        image: String,
-
-     }],
+   
 },
 {
     toJSON: {
@@ -68,9 +53,7 @@ userSchema.pre('save', async function(next) {
    return compare(password, this.password);
  };
 
-userSchema.virtual('friendCount').get(function() {
-    return this.friends.length;
-})
+
 
 const User = model('User', userSchema);
 

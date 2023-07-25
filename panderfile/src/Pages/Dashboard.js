@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -9,6 +8,9 @@ const Dashboard = () => {
   const [PanderFileUpload, setPanderFileUpload] = useState(null);
   const [dataFileUpload, setDataFileUpload] = useState(null);
   const [cleanSheet, setCleanSheet] = useState(null);
+  const [authenticated, setauthenticated] = useState(null);
+
+ 
 
   useEffect(() => {
     fetchClients();
@@ -16,7 +18,7 @@ const Dashboard = () => {
 
   const fetchClients = async () => {
     try {
-      const response = await axios.get('./models/ClientRoutes'); 
+      const response = await axios.get('./server/Routes/ClientRoutes'); 
       setClients(response.data);
     } catch (error) {
       console.error('Error fetching clients:', error);
@@ -81,6 +83,17 @@ const Dashboard = () => {
     }
   };
 
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("authenticated");
+    if (loggedInUser) {
+      setauthenticated(loggedInUser);
+    }
+  }, []);
+
+  if (!authenticated) {
+ 
+  } else {
+
   return (
     <div>
       <h1>Client Dashboard</h1>
@@ -123,5 +136,5 @@ const Dashboard = () => {
     </div>
   );
 };
-
+};
 export default Dashboard;
