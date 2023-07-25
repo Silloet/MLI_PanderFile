@@ -12,7 +12,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-//import login from './Login'
+import login from './Login'
 import logo_3 from './components/Logo_3.png'
 
 
@@ -72,7 +72,7 @@ const defaultTheme = createTheme();
             const returnObj = responseJson;
             console.log(returnObj);
             sessionStorage.setItem('resData', JSON.stringify(returnObj));
-            this.props.history.push('./')
+            this.props.history.push('./Login')
   
         });
     }

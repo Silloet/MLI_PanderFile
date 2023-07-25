@@ -18,7 +18,7 @@ const Dashboard = () => {
 
   const fetchClients = async () => {
     try {
-      const response = await axios.get('./server/Routes/ClientRoutes'); 
+      const response = await axios.get('./server/Routes/Client'); 
       setClients(response.data);
     } catch (error) {
       console.error('Error fetching clients:', error);
