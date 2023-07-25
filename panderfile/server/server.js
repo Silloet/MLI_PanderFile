@@ -1,12 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+routes=require('../server/Routes/ClientRoutes');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const MONGODB_URI = 'mongodb://localhost:27017/excel-deduplication'; 
+ 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -17,7 +18,7 @@ mongoose.connection.once('open', () => {
 
 
 
-app.use('../Routes/ClientRoutes', ClientRoutes);
+app.use('../Routes/ClientRoutes', clientRoutes);
 app.use('./api/Deduplicate', DeduplicationRoutes);
 
 
