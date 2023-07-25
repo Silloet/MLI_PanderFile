@@ -12,7 +12,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import logo from '././components/Silloet-Live-Circle.png'
 import logo_2 from './components/Logo_2.png'
-
+import Dashboard from './Dashboard';
 
 
 
@@ -29,8 +29,6 @@ function Copyright(props) {
   );
 }
 
-fetch('https://mli-data-api-dev.azurewebsites.net/api/Login')
-
 const defaultTheme = createTheme();
 
 
@@ -38,12 +36,31 @@ const defaultTheme = createTheme();
 export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    fetch('https://mli-data-api-dev.azurewebsites.net/api/Login',
+         {
+            method: "POST",
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+
+         }
+      )
+      .then(response =>
+         response.json()
+
+      )
+      .then(responseJson => {
+          const returnObj = responseJson;
+          console.log(returnObj);
+          sessionStorage.setItem('resData', JSON.stringify(returnObj));
+          this.props.history.push('./Dashboard')
+
+      });
+
+
+}
+    
 
   return (
     <ThemeProvider theme={defaultTheme}>

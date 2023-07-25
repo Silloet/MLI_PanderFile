@@ -38,18 +38,44 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      firstName: data.get('firstName'),
-      lastName: data.get('lastName'),
-      email: data.get('email'),
-      password: data.get('password'),
+//export default function SignUp() {
+  //const handleSubmit = (event) => {
+    //event.preventDefault();
+    //const data = new FormData(event.currentTarget);
+    //console.log({
+      //firstName: data.get('firstName'),
+      //lastName: data.get('lastName'),
+      //email: data.get('email'),
+      //password: data.get('password'),
 
-    });
-  };
+    //});
+  //};
+
+  export default function Signup() {
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      fetch('https://mli-data-api-dev.azurewebsites.net/api/Login',
+           {
+              method: "POST",
+              headers:{
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/x-www-form-urlencoded',
+              },
+  
+           }
+        )
+        .then(response =>
+           response.json()
+  
+        )
+        .then(responseJson => {
+            const returnObj = responseJson;
+            console.log(returnObj);
+            sessionStorage.setItem('resData', JSON.stringify(returnObj));
+            this.props.history.push('./')
+  
+        });
+    }
 
   return (
     <ThemeProvider theme={defaultTheme}>
