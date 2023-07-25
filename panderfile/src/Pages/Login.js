@@ -57,11 +57,11 @@ export default function Login() {
             alignItems: 'center',
           }}
         >
-             <div class = 'logo'>
+             <div className = 'logo'>
     <img src={logo} width={225} height={225} alt="Logo" />
     </div>
     <div>
-    <img src={logo_2} width={700} height={100} alt="Logo_2" />
+    <img src={logo_2} width={600} height={75} alt="Logo_2" />
     </div>
         
           <Typography component="h1" variant="h5">

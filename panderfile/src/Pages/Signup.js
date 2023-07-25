@@ -20,6 +20,7 @@ import logo_3 from './components/Logo_3.png'
 
 
 
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -42,8 +43,8 @@ export default function SignUp() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      FirstName: data.get('Firstname'),
-      LastName: data.get('LastName'),
+      firstName: data.get('firstName'),
+      lastName: data.get('lastName'),
       email: data.get('email'),
       password: data.get('password'),
 
@@ -72,13 +73,12 @@ export default function SignUp() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  autoComplete="given-name"
-                  name="FirstName"
                   required
                   fullWidth
                   id="firstName"
+                  name="firstName"
                   label="First Name"
-                  autoFocus
+                  autoComplete="given-name"
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
